@@ -1,4 +1,5 @@
-FROM quay.io/devfile/maven:3.8.1-openjdk-17-slim
+FROM maven:3.8.6-openjdk-8-slim
+#FROM quay.io/devfile/maven:3.8.1-openjdk-17-slim
 WORKDIR /build
 COPY pom.xml .
 COPY src src
