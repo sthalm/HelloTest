@@ -48,9 +48,9 @@ env:
   #IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
   IMAGE_REGISTRY: image-registry-openshift-image-registry.apps.qqd02ebq.usgovvirginia.aroapp.azure.us:5000
   #IMAGE_REGISTRY_USER: ${{ github.actor }}
-  IMAGE_REGISTRY_USER: ${{ secrets.REGISTRY_USER }}
+  IMAGE_REGISTRY_USER: ${{ secrets.IMAGE_REGISTRY_USER }}
   #IMAGE_REGISTRY_PASSWORD: ${{ github.token }}
-  IMAGE_REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
+  IMAGE_REGISTRY_PASSWORD: ${{ secrets.IMAGE_REGISTRY_PASSWORD }}
 
   # 🖊️ EDIT to specify custom tags for the container image, or default tags will be generated below.
   IMAGE_TAGS: ""
