@@ -5,5 +5,5 @@ COPY pom.xml .
 COPY src src
 RUN mvn clean package
 FROM tomcat:9-jdk8-corretto
-COPY --from=0 /build/target/maven-generate-war.war webapps/
+COPY --from=0 /build/target/maven-generate-war-dev.war webapps/
 RUN chgrp -R 0 /usr/local/tomcat && chmod -R g=u /usr/local/tomcat
