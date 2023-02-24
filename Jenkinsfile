@@ -11,6 +11,7 @@ pipeline {
             steps {
                 echo 'Building'
                 echo "$PATH"
+                ls
             }
         }
         stage('Test') {
