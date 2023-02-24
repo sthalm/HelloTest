@@ -10,7 +10,6 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building'
-                which mvn
             }
         }
         stage('Test') {
