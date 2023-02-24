@@ -2,6 +2,7 @@ pipeline {
     agent any
     tools {
       maven 'mvn3.6.3'
+      jdk 'jdk8'
     }
     options {
         skipStagesAfterUnstable()
@@ -10,6 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building'
+                /usr/bin/which mvn
             }
         }
         stage('Test') {
