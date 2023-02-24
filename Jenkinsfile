@@ -10,8 +10,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building'
-                echo "$PATH"
-                ls
+                sh('/usr/bin/which mvn')
             }
         }
         stage('Test') {
