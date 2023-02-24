@@ -10,7 +10,9 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building'
-                sh('mvn package ')
+                sh('git branch')
+                sh('git rev-parse --short HEAD')
+                //sh('mvn package ')
             }
         }
         stage('Test') {
