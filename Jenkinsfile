@@ -11,7 +11,7 @@ pipeline {
             steps {
                 echo 'Building'
                 sh('git branch')
-                def tag = sh(script: 'git rev-parse --short HEAD', returnStdout: true)
+                tag = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
                 //sh('mvn package ')
             script {
               pom = readMavenPom(file: 'pom.xml')
