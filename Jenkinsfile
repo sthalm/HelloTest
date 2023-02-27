@@ -21,7 +21,8 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-              oc process -f bc.yaml -p NAME=${pom_name} | oc apply -f -
+              //oc process -f bc.yaml -p NAME=${pom_name} | oc apply -f -
+              oc get pods
               binaryBuild(buildConfigName: ${pom.name}, buildFromPath: ".")
             }
         }
