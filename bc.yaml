@@ -1,0 +1,22 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  labels:
+  name: "${NAME}"
+spec:
+  output:
+    to:
+      kind: DockerImage
+      name: docker.io/monodot/hello-java-spring-boot:latest
+  source:
+    type: Binary
+    binary: {}
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+parameters:
+- name: NAME
+  displayName: Name
+  description: Name of object
+  required: true
