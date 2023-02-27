@@ -11,25 +11,22 @@ pipeline {
             steps {
                 echo 'Building'
                 sh('git branch')
-                sh('git rev-parse --short HEAD')
+                tag=sh('git rev-parse --short HEAD')
                 //sh('mvn package ')
             script {
               pom = readMavenPom(file: 'pom.xml')
               def pom_name = pom.build.finalName
-              def customImage = docker.build("${pom_name}:latest")
             }
           }
         }
-        stage('Docker Build') {
+        stage('Test') {
             steps {
-              echo "Dockerbuild"
-              //oc process -f bc.yaml -p NAME="${pom_name}" | oc apply -f -
-              //binaryBuild(buildConfigName: "${pom.name}", buildFromPath: ".")
+              echo "Test $pom_name $tag"
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying'
+                echo "Deploying $pom_name $tag"
             }
         }
     }
