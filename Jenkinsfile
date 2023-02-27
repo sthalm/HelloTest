@@ -16,13 +16,13 @@ pipeline {
             script {
               pom = readMavenPom(file: 'pom.xml')
               def pom_name = pom.build.finalName
-              oc process -f bc.yaml -p NAME=${pom_name} | oc apply -f -
             }
           }
         }
         stage('Docker Build') {
             steps {
-                binaryBuild(buildConfigName: ${pom.name}, buildFromPath: ".")
+              oc process -f bc.yaml -p NAME=${pom_name} | oc apply -f -
+              binaryBuild(buildConfigName: ${pom.name}, buildFromPath: ".")
             }
         }
         stage('Deploy') {
