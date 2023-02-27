@@ -22,12 +22,12 @@ pipeline {
         }
         stage('Test') {
             steps {
-              echo "Test ${pom_name}"
+              echo "Test ${pom_name} ${tag}"
             }
         }
         stage('Deploy') {
             steps {
-                echo "Deploying ${pom_name}"
+                echo "Deploying ${pom_name} ${tag}"
             }
         }
     }
