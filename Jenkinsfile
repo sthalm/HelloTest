@@ -17,6 +17,7 @@ pipeline {
               pom = readMavenPom(file: 'pom.xml')
               pom_name = pom.build.finalName
               tag = sh('git rev-parse --short HEAD')
+              echo ${tag}
             }
           }
         }
