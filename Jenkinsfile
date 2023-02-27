@@ -10,8 +10,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building'
-                sh('git branch')
-                //tag = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
+                sh('git branch -a')
+                sh('git rev-parse --short HEAD')
                 //sh('mvn package ')
             script {
               pom = readMavenPom(file: 'pom.xml')
