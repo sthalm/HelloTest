@@ -13,11 +13,11 @@ pipeline {
                 sh('git branch')
                 sh('git rev-parse --short HEAD')
                 //sh('mvn package ')
-            }
             script {
               pom = readMavenPom(file: 'pom.xml')
               def pom_name = pom.finalName
             }
+          }
         }
         stage('Test') {
             steps {
