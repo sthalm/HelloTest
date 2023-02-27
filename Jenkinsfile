@@ -13,11 +13,15 @@ pipeline {
                 sh('git branch')
                 sh('git rev-parse --short HEAD')
                 //sh('mvn package ')
+            script {
+              def pom = readMavePom: 'pom.xml'
+              def pom.name = pom.finalName
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing'
+                echo "Application name is ${pom.name}"
             }
         }
         stage('Deploy') {
