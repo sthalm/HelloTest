@@ -16,13 +16,14 @@ pipeline {
             script {
               pom = readMavenPom(file: 'pom.xml')
               def pom_name = pom.build.finalName
+              def customImage = docker.build("${pom_name}:latest")
             }
           }
         }
         stage('Docker Build') {
             steps {
               //oc process -f bc.yaml -p NAME="${pom_name}" | oc apply -f -
-              binaryBuild(buildConfigName: "${pom.name}", buildFromPath: ".")
+              //binaryBuild(buildConfigName: "${pom.name}", buildFromPath: ".")
             }
         }
         stage('Deploy') {
