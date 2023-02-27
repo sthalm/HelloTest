@@ -15,7 +15,7 @@ pipeline {
                 //sh('mvn package ')
             script {
               pom = readMavenPom(file: 'pom.xml')
-              def pom_name = pom.finalName
+              def pom_name = pom.build.finalName
             }
           }
         }
