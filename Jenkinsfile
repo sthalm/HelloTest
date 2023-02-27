@@ -14,8 +14,8 @@ pipeline {
                 sh('git rev-parse --short HEAD')
                 //sh('mvn package ')
             script {
-              def pom = readMavenPom: 'pom.xml'
-              def pom.name = pom.finalName
+              pom = readMavenPom(file: 'pom.xml')
+              def pom_name = pom.finalName
             }
         }
         stage('Test') {
