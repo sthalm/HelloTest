@@ -16,7 +16,7 @@ pipeline {
             script {
               pom = readMavenPom(file: 'pom.xml')
               pom_name = pom.build.finalName
-              tag = sh('git rev-parse --short HEAD')
+              def tag = sh script: 'git rev-parse --short HEAD'
               echo "This is the tag value: ${tag}"
             }
           }
